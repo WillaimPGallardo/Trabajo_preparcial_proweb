@@ -214,6 +214,56 @@ card.style.display="none";
 document.getElementById("contador").textContent=contador;
 }
 
+// FORMULARIO
+document.getElementById("formulario").addEventListener("submit",function(e){
+e.preventDefault();
+
+let nombre=document.getElementById("nombre").value;
+let correo=document.getElementById("correo").value;
+let asunto=document.getElementById("asunto").value;
+let mensaje=document.getElementById("mensaje").value;
+
+let valido=true;
+
+if(nombre===""){
+document.getElementById("errorNombre").textContent="Nombre obligatorio";
+valido=false;
+}else{
+document.getElementById("errorNombre").textContent="";
+}
+
+if(!correo.includes("@")){
+document.getElementById("errorCorreo").textContent="Correo inválido";
+valido=false;
+}else{
+document.getElementById("errorCorreo").textContent="";
+}
+
+if(asunto.length<5){
+document.getElementById("errorAsunto").textContent="Mínimo 5 caracteres";
+valido=false;
+}else{
+document.getElementById("errorAsunto").textContent="";
+}
+
+if(mensaje.length<20){
+document.getElementById("errorMensaje").textContent="Mínimo 20 caracteres";
+valido=false;
+}else{
+document.getElementById("errorMensaje").textContent="";
+}
+
+if(valido){
+document.getElementById("confirmacion").textContent="Gracias por tu mensaje "+nombre;
+document.getElementById("formulario").reset();
+}
+
+});
+
+function volverInicio(){
+window.scrollTo({top:0,behavior:'smooth'});
+}
+
 
 </script>
 
