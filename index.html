@@ -164,6 +164,58 @@ alt="Mapa">
 
 </main>
 
+<footer>
+
+<p>William - 2026</p>
+<p>"Nunca dejes de aprender"</p>
+
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#about">Quién soy</a>
+<a href="#skills">Habilidades</a>
+<a href="#contact">Contacto</a>
+</nav>
+
+<button onclick="volverInicio()">⬆</button>
+
+</footer>
+
+
+<script>
+
+// LEER MAS
+function toggleText(){
+let text=document.getElementById("extraText");
+let btn=document.getElementById("btnLeer");
+
+if(text.classList.contains("hidden")){
+text.classList.remove("hidden");
+btn.textContent="Leer menos";
+}else{
+text.classList.add("hidden");
+btn.textContent="Leer más";
+}
+}
+
+// FILTROS
+function filtrar(categoria){
+let cards=document.querySelectorAll(".card");
+let contador=0;
+
+cards.forEach(card=>{
+if(categoria==="all" || card.classList.contains(categoria)){
+card.style.display="block";
+contador++;
+}else{
+card.style.display="none";
+}
+});
+
+document.getElementById("contador").textContent=contador;
+}
+
+
+</script>
 
 
 
